@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	ESVApiKey    = "ESV_API_KEY"
+	ESVApiKey = "ESV_API_KEY"
 	ESVApiUrl = "https://api.esv.org/v3/passage/text/?include-headings=false&include-footnotes=false&include-short-copyright=false&q="
 )
 
@@ -26,7 +26,7 @@ func NewClient(timeout time.Duration) (c *ESVClient, err error) {
 	c = new(ESVClient)
 
 	c.Client = &http.Client{
-		Timeout:   timeout,
+		Timeout: timeout,
 	}
 
 	return c, nil
@@ -36,7 +36,6 @@ func validParam(v string) string {
 	space := regexp.MustCompile(`\s+`)
 	return strings.Replace(space.ReplaceAllString(v, " "), " ", "+", 1)
 }
-
 
 func (c *ESVClient) GetVerses(param string) (string, error) {
 	passage := ""
@@ -56,8 +55,8 @@ func (c *ESVClient) GetVerses(param string) (string, error) {
 	}
 
 	type result struct {
-		Query     string `json:"query"`
-		Canonical string `json:"canonical"`
+		Query     string   `json:"query"`
+		Canonical string   `json:"canonical"`
 		Passages  []string `json:"passages"`
 	}
 

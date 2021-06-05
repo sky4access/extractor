@@ -18,7 +18,6 @@ func TestESVClient_GetVerses(t *testing.T) {
 	assert.NotEmpty(t, passage)
 	t.Log(passage)
 
-
 	passage, err = esv.GetVerses("rev 1:1")
 	assert.Nil(t, err)
 	assert.NotEmpty(t, passage)

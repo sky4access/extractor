@@ -14,18 +14,17 @@ type Service struct {
 }
 
 type ServiceOptions struct {
-	Debug bool
+	Debug  bool
 	Pretty bool
-	Port string
-
+	Port   string
 }
+
 func NewService(logger *logrus.Entry) *Service {
 	p := new(Service)
 	c, _ := esvclient.NewClient(2 * time.Second)
 	p.client = c
 	return p
 }
-
 
 func (s *Service) Run() error {
 	return errors.New("not implemented")
