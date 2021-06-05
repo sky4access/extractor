@@ -5,17 +5,15 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
-
 func NewCmdService(service *server.Service) *cobra.Command {
 	command := &cobra.Command{
-		Use: "service",
+		Use:   "service",
 		Short: "run extractor service",
-		Long: "run  extractor service",
-		RunE: func(cmd *cobra.Command, args[]string) error {
+		Long:  "run  extractor service",
+		RunE: func(cmd *cobra.Command, args []string) error {
 			return service.Run()
 		},
-	 }
+	}
 
 	return command
 }

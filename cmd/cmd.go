@@ -6,16 +6,14 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const (
-
-)
+const ()
 
 func NewCommand(logger *logrus.Entry) *cobra.Command {
-	cmds := &cobra.Command {
-		Use: "bext",
+	cmds := &cobra.Command{
+		Use:   "bext",
 		Short: "Bible extractor",
-		Long: "Extract Bible verses",
-		Run: rootCmd,
+		Long:  "Extract Bible verses",
+		Run:   rootCmd,
 	}
 
 	service := server.NewService(logger)
@@ -26,4 +24,3 @@ func NewCommand(logger *logrus.Entry) *cobra.Command {
 func rootCmd(cmd *cobra.Command, args []string) {
 	cmd.Help()
 }
-
